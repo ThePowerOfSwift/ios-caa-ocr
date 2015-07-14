@@ -20,6 +20,8 @@
 		AD3B5CE41B53F10700D04144 /* eng.png in Resources */ = {isa = PBXBuildFile; fileRef = AD3B5CE11B53F10700D04144 /* eng.png */; };
 		AD3B5CE51B53F10700D04144 /* jpn.gif in Resources */ = {isa = PBXBuildFile; fileRef = AD3B5CE21B53F10700D04144 /* jpn.gif */; };
 		AD3B5CE71B53F4B700D04144 /* num.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD3B5CE61B53F4B700D04144 /* num.jpg */; };
+		AD9498FD1B54DB4E00541B59 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9498FB1B54DB4E00541B59 /* CameraViewController.m */; };
+		AD9498FE1B54DB4E00541B59 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD9498FC1B54DB4E00541B59 /* CameraViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		AD3B5CE11B53F10700D04144 /* eng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eng.png; path = sampleImages/eng.png; sourceTree = "<group>"; };
 		AD3B5CE21B53F10700D04144 /* jpn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = jpn.gif; path = sampleImages/jpn.gif; sourceTree = "<group>"; };
 		AD3B5CE61B53F4B700D04144 /* num.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = num.jpg; path = sampleImages/num.jpg; sourceTree = "<group>"; };
+		AD9498FA1B54DB4E00541B59 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		AD9498FB1B54DB4E00541B59 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		AD9498FC1B54DB4E00541B59 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		C860CD8E5C4673A11A139FD9 /* Pods-ios-caa-ocr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-caa-ocr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-caa-ocr/Pods-ios-caa-ocr.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,12 +112,10 @@
 		AD3B5C121B53CB1E00D04144 /* ios-caa-ocr */ = {
 			isa = PBXGroup;
 			children = (
+				AD9498F91B54DB2600541B59 /* view controllers */,
 				AD3B5CD31B53E08C00D04144 /* tessdata */,
 				AD3B5C171B53CB1E00D04144 /* AppDelegate.h */,
 				AD3B5C181B53CB1E00D04144 /* AppDelegate.m */,
-				AD3B5C1A1B53CB1E00D04144 /* ViewController.h */,
-				AD3B5C1B1B53CB1E00D04144 /* ViewController.m */,
-				AD3B5C1D1B53CB1E00D04144 /* Main.storyboard */,
 				AD3B5C201B53CB1E00D04144 /* Images.xcassets */,
 				AD3B5C221B53CB1E00D04144 /* LaunchScreen.xib */,
 				AD3B5C131B53CB1E00D04144 /* Supporting Files */,
@@ -148,6 +151,19 @@
 				AD3B5C2E1B53CB1F00D04144 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD9498F91B54DB2600541B59 /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD3B5C1A1B53CB1E00D04144 /* ViewController.h */,
+				AD3B5C1B1B53CB1E00D04144 /* ViewController.m */,
+				AD3B5C1D1B53CB1E00D04144 /* Main.storyboard */,
+				AD9498FA1B54DB4E00541B59 /* CameraViewController.h */,
+				AD9498FB1B54DB4E00541B59 /* CameraViewController.m */,
+				AD9498FC1B54DB4E00541B59 /* CameraViewController.xib */,
+			);
+			name = "view controllers";
 			sourceTree = "<group>";
 		};
 		EF785E57BA214D36D6B72394 /* Frameworks */ = {
@@ -240,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD9498FE1B54DB4E00541B59 /* CameraViewController.xib in Resources */,
 				AD3B5CE41B53F10700D04144 /* eng.png in Resources */,
 				AD3B5C1F1B53CB1E00D04144 /* Main.storyboard in Resources */,
 				AD3B5CE51B53F10700D04144 /* jpn.gif in Resources */,
@@ -299,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD3B5C1C1B53CB1E00D04144 /* ViewController.m in Sources */,
+				AD9498FD1B54DB4E00541B59 /* CameraViewController.m in Sources */,
 				AD3B5C191B53CB1E00D04144 /* AppDelegate.m in Sources */,
 				AD3B5C161B53CB1E00D04144 /* main.m in Sources */,
 			);
