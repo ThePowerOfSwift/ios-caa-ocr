@@ -18,12 +18,15 @@
 @property (weak, nonatomic) IBOutlet UIImageView *debugImageView;
 
 @property (strong, nonatomic) AVCaptureSession *session;
+@property (strong, nonatomic) AVCaptureDevice *videoDevice;
 @property (strong, nonatomic) AVCaptureStillImageOutput *stillImageOutput;
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer *previewLayer;
 @property (assign, nonatomic) CGPoint startPanLoc;
 @property (assign, nonatomic) CGFloat baseScaleX;
 @property (assign, nonatomic) CGFloat baseScaleY;
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
+
+
 
 @end
 
@@ -39,9 +42,20 @@
         self.baseScaleY = self.targetView.transform.d;
     }else if(sender.state == UIGestureRecognizerStateChanged){
 
+//        NSError *error = nil;
+//        int zoomDirection = 1;
+        
         CGFloat scalex = (loc.x - self.startPanLoc.x)/50;
         CGFloat scaley = (loc.y - self.startPanLoc.y)/50;
         
+//        if ([self.videoDevice lockForConfiguration:&error]) {
+//            zoomDirection = scaley > 0 ? 1 : -1;
+//            self.videoDevice.videoZoomFactor = self.videoDevice.videoZoomFactor + zoomDirection*0.01;
+//            [self.videoDevice unlockForConfiguration];
+//        }else {
+//            NSLog(@"error: %@", error);
+//        }
+//        
         CGFloat cscalex = MAX(self.baseScaleX+scalex, 0.3);
         CGFloat cscaley = MAX(self.baseScaleY+scaley, 0.3);
         
@@ -81,6 +95,9 @@
             backCamera = device;
         }
     }
+    
+    self.videoDevice = backCamera;
+    
     
     AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:backCamera error:&error];
     if ([self.session canAddInput:deviceInput]) {
@@ -288,10 +305,10 @@
 }
 
 - (IBAction)onCameraViewTap:(UITapGestureRecognizer *)sender {
-    [self imageProcessing:^(UIImage *image) {
-        self.debugImageView.image = image ;
-        [self performImageRecognition:image];
-    }];
+//    [self imageProcessing:^(UIImage *image) {
+//        self.debugImageView.image = image ;
+//        [self performImageRecognition:image];
+//    }];
 }
 
 - (void) performImageRecognition:(UIImage*)image{
@@ -299,8 +316,8 @@
     G8RecognitionOperation *operation = [[G8RecognitionOperation alloc]initWithLanguage:@"eng"];
     operation.tesseract.maximumRecognitionTime = 30.0;
     //operation.tesseract.engineMode = G8OCREngineModeTesseractCubeCombined;
-    operation.tesseract.pageSegmentationMode = G8PageSegmentationModeSingleLine;
-    
+    //operation.tesseract.pageSegmentationMode = G8PageSegmentationModeSingleLine;
+
     operation.delegate = self;
     operation.tesseract.image = bwImage;
     operation.recognitionCompleteBlock = ^(G8Tesseract *tesseract) {

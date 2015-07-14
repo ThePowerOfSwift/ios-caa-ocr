@@ -152,7 +152,7 @@
     CGContextRelease(contextRef);
     
     cv::Mat grayMat;
-    cv::cvtColor(cvMat, grayMat, CV_BGR2GRAY);
+    cv::cvtColor(cvMat, grayMat, CV_RGBA2GRAY);
     
     /*
     // text area detection ===
